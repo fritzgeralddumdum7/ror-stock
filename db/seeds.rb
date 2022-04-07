@@ -16,3 +16,9 @@ Stock.create([
   { name: 'Jolliville Holdings Corporation', unit_price: 5.32 },
   { name: 'PLDT, Inc.', unit_price: 1840.00 }
 ])
+
+User.create([
+  { first_name: 'Fritz Gerald', last_name: 'Dumdum', email: 'prets@gmail.com', password: 'password', password_confirmation: 'password' },
+  { first_name: 'Jerick', last_name: 'Borela', email: 'jerick@gmail.com', password: 'password', password_confirmation: 'password' },
+  { first_name: 'Kurt', last_name: 'Chan', email: 'kurt@gmail.com', password: 'password', password_confirmation: 'password' }
+])
