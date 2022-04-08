@@ -12,4 +12,5 @@ Rails.application.routes.draw do
         resources :orders
         resources :wallets
     end
+    get 'vTrade', to: 'users#v_trade'
 end
