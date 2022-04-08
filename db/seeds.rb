@@ -18,6 +18,7 @@ Stock.create([
 ])
 
 User.create([
+  { first_name: 'Stock App', last_name: 'Administrator', email: 'admin@admin.com', password: 'password', password_confirmation: 'password', is_admin: true },
   { first_name: 'Fritz Gerald', last_name: 'Dumdum', email: 'prets@gmail.com', password: 'password', password_confirmation: 'password' },
   { first_name: 'Jerick', last_name: 'Borela', email: 'jerick@gmail.com', password: 'password', password_confirmation: 'password' },
   { first_name: 'Kurt', last_name: 'Chan', email: 'kurt@gmail.com', password: 'password', password_confirmation: 'password' }

@@ -1,0 +1,38 @@
+<div>
+  <h1>Traders</h1>
+  <table>
+    <thead>
+        <tr>
+          <td>Name</td>
+          <td># of Orders</td>
+          <td>Created</td>
+          <td>Available Cash</td>
+          <td>Status</td>
+          <td colspan="2">Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+            <tr>
+            <td><%= user.name %></td>
+            <td>5</td>
+            <td><%= user.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= user.available_cash %></td>
+            <td>
+                <% if user.is_verified %>
+                    Verified
+                <% else %>
+                    <%= link_to "Verify" %>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to "Transactions" %>
+            </td>
+            <td>
+                <%= link_to "View" %>
+            </td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
