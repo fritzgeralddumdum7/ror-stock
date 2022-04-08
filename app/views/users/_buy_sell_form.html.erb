@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-title">
+    Buy and Sell
+  </div>
+  <div class="card-body">
+    <%= form_with  model: @wallet do |form| %>
+      <div>
+        <%= form.label :stock %>
+        <%= form.collection_select :stock_id, @stocks, :id, :name, { prompt: "Please select a stock" } %>
+      </div>
+      <div class="wrapper">
+        <%= form.label :qty %>
+        <%= form.number_field :qty %>
+      </div>
+      <div class="wrapper">
+        <%= form.label :qty, "Remarks (optional)" %>
+        <%= form.text_area :qty, :rows => 5 %>
+      </div>
+      <div class="current-price">
+        <label>Current Price: </label>
+        <label class="font-bold">9,000.20</label>
+      </div>
+      <div class="action-wrapper">
+        <button class="buy-btn">BUY</button>
+        <button class="sell-btn">SELL</button>
+      </div>
+    <% end %>
+  </div>
+</div>

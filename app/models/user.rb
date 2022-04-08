@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
     validates_presence_of :first_name, :last_name
 
+    has_many :wallets
+    has_many :orders
+
     def name
         [first_name, last_name].join(' ')
     end
