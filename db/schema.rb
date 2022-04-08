@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_141930) do
+ActiveRecord::Schema.define(version: 2022_04_08_072515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "users_id", null: false
+    t.bigint "stocks_id", null: false
+    t.integer "qty", null: false
+    t.float "total_cost", null: false
+    t.string "type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stocks_id"], name: "index_orders_on_stocks_id"
+    t.index ["users_id"], name: "index_orders_on_users_id"
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.string "name"
@@ -40,4 +52,19 @@ ActiveRecord::Schema.define(version: 2022_04_06_141930) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wallets", force: :cascade do |t|
+    t.bigint "users_id", null: false
+    t.bigint "stocks_id", null: false
+    t.integer "qty", null: false
+    t.float "total_cost", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stocks_id"], name: "index_wallets_on_stocks_id"
+    t.index ["users_id"], name: "index_wallets_on_users_id"
+  end
+
+  add_foreign_key "orders", "stocks", column: "stocks_id"
+  add_foreign_key "orders", "users", column: "users_id"
+  add_foreign_key "wallets", "stocks", column: "stocks_id"
+  add_foreign_key "wallets", "users", column: "users_id"
 end

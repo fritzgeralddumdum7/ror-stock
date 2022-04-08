@@ -1,3 +1,85 @@
+/** @format */
+
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card {
+  width: 333px;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+
+  &-title {
+    font-size: 20px;
+    color: #3e3e3e;
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px;
+    font-weight: 700;
+  }
+
+  &-body {
+    height: auto;
+    padding: 10px 15px;
+  }
+}
+
+.order {
+  display: flex;
+  gap: 10px;
+
+  &-header {
+    background: #f5f5f5;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: end;
+    border-bottom: 0 solid #ddd;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 20px;
+    color: #3e3e3e;
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px;
+  }
+}
+
+.current-price {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.buy-btn,
+.sell-btn {
+  flex: 1;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.buy-btn {
+  background-color: #09bca8;
+  border-color: #09bca8;
+}
+
+.action-wrapper {
+  padding-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.sell-btn {
+  background: #ff6961;
+  border-color: #ff6961;
+}

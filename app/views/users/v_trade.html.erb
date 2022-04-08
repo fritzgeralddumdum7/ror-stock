@@ -1,0 +1,24 @@
+
+<div>
+  <h1>Virtual Trading</h1>
+  <div class="order">
+    <div style="width: 100%">
+      <div class="order-header">
+        Available Cash: &nbsp
+        <label class="font-bold">
+          <%= current_user.available_cash %>
+        </label>
+      </div>
+      <table>
+        <thead>
+              <th>Stocks</th>
+              <th>Shares QTY</th>
+              <th>Total Cost</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <%= render 'buy_sell_form' %>
+  </div>
+</div>
