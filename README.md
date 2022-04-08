@@ -5,7 +5,7 @@
 ### Trader
 
 - [x] As a Trader, I want to create an account to buy and sell stocks
-- [ ] As a Trader, I want to log in my credentials so that I can access my account on the app
+- [x] As a Trader, I want to log in my credentials so that I can access my account on the app
 - [ ] As a Trader, I want to buy a stock to add to my investment(Trader signup should be approved)
 - [ ] As a Trader, I want to have a My Portfolio page to see all my stocks
 - [ ] As a Trader, I want to have a Transaction page to see and monitor all the transactions made by buying and selling stocks

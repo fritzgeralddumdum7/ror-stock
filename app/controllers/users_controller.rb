@@ -9,6 +9,15 @@ class UsersController < Devise::RegistrationsController
         end
     end
 
+    def wallets
+        
+    end
+
+    def v_trade
+        @stocks = Stock.all
+        @wallet = Wallet.new
+    end
+
     private
 
     def user_params
