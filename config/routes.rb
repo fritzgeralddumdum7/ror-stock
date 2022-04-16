@@ -7,11 +7,10 @@ Rails.application.routes.draw do
 
         get 'logout' => 'devise/sessions#destroy'
         get 'vTrade' => 'users#v_trade'
-        get 'wallets' => 'users#wallets'
-        post 'wallets' => 'users#buy'
 
         root :to => 'users#index', :as => :dashboard
         get 'vTrade', to: 'users#v_trade'
         resources :orders
+        resources :wallets
     end
 end
