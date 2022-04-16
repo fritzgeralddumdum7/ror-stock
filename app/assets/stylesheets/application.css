@@ -21,18 +21,6 @@
   font-weight: bold;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-thead th {
-  color: #fff;
-  background-color: #28a9e0;
-  border-color: #28a9e0;
-  padding: 10px;
-}
-
 body {
   background-color: #dde7f3;
 }

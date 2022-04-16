@@ -11,6 +11,10 @@ class OrdersController < ApplicationController
         end
     end
 
+    def index
+        @orders = Order.all
+    end
+
     private
 
     def order_params

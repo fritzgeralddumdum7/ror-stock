@@ -16,6 +16,13 @@
               <th>Total Cost</th>
         </thead>
         <tbody>
+        <% @wallets.each do |wallet| %>
+          <tr>
+              <td><%= wallet.stock.name %></td>
+              <td><%= wallet.qty %></td>
+              <td><%= wallet.total_cost %></td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>

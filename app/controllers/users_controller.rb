@@ -25,8 +25,8 @@ class UsersController < Devise::RegistrationsController
 
     def v_trade
         @stocks = Stock.all
-        @orders = Order.all
-        @order = Order.new
+        @wallets = Wallet.all
+        @wallet = Wallet.new
     end
 
     private
