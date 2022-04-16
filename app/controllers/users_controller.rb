@@ -10,12 +10,22 @@ class UsersController < Devise::RegistrationsController
     end
 
     def wallets
-        
+    end
+
+    def buy
+        action = 'BUY'
+        @order = Order.new(order_params)
+
+        if @order.save
+            redirect_to dashboard_path
+        else
+            render :v_trade
+        end
     end
 
     def v_trade
         @stocks = Stock.all
-        @wallet = Wallet.new
+        @orders = Order.all
     end
 
     private
