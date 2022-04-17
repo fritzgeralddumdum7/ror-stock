@@ -5,8 +5,8 @@ class WelcomeMailer < ApplicationMailer
   #
   #   en.welcome_mailer.welcome_mailer.subject
   #
-  def welcome_mailer
+  def welcome_mailer(user)
     @user = user
-        mail to: @user.email, subject: "Welcome to Stock App", from: "adminr@gmail.com"
+    mail to: @user.email, subject: "Welcome to Stock App", from: "admin@gmail.com"
   end
 end
