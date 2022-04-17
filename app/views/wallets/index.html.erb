@@ -1,0 +1,33 @@
+
+<div>
+  <h1>My Portfolio</h1>
+  <div class="order">
+    <div style="width: 100%">
+      <div class="order-header">
+        Available Cash: &nbsp
+        <label class="font-bold">
+          <%= current_user.available_cash %>
+        </label>
+      </div>
+      <table>
+        <thead>
+              <th>Stocks</th>
+              <th>Price</th>
+              <th>Shares QTY</th>
+              <th>Total Cost</th>
+        </thead>
+        <tbody>
+        <% @wallets.each do |wallet| %>
+          <tr>
+              <td><%= wallet.stock.name %></td>
+              <td><%= wallet.stock.unit_price %></td>
+              <td><%= wallet.qty %></td>
+              <td><%= wallet.total_cost %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= render 'buy_sell_form' %>
+  </div>
+</div>

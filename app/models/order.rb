@@ -5,7 +5,6 @@ class Order < ApplicationRecord
 
   before_save :set_total_cost
   after_save :update_stock_qty
-  # after_save :upsert_wallet
 
   validate :is_qty_valid
 
