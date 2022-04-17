@@ -66,3 +66,17 @@ input {
   left: 0;
   right: 0;
 }
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.no-decor {
+  text-decoration: none;
+}
+
+.no-decor:hover {
+  text-decoration: underline;
+}

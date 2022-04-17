@@ -27,7 +27,7 @@ class Wallet < ApplicationRecord
           if @@action_type == 'SELL' && qty > stock.wallets[0].qty
             return errors.add(:qty, "Invalid Quantity. Your remaining stock shares for #{stock.name} is only #{stock.wallets[0].qty}.")
           end
-        else
+        elsif @@action_type == 'SELL'
           return errors.add(:stock_id, "You dont have shares to #{stock.name}.")
         end
       end
