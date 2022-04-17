@@ -3,6 +3,7 @@ class UsersController < Devise::RegistrationsController
         @user = User.new(user_params)
 
         if @user.save
+            WelcomeMailer.send_welcome_email(@user).deliver
             redirect_to dashboard_path
         else
             render 'devise/registrations/new'
@@ -27,6 +28,7 @@ class UsersController < Devise::RegistrationsController
         @stocks = Stock.all
         @wallets = Wallet.all
         @wallet = Wallet.new
+    end
     def new
         @user = User.new
     end
