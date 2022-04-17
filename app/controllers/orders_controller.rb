@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+    before_action :_init, only: [:index]
+
     def create
         @order = Order.new(order_params)
         @order.user_id = current_user.id
@@ -12,12 +14,18 @@ class OrdersController < ApplicationController
     end
 
     def index
-        @orders = Order.all
+        @orders = Order.all.order(id: :desc)
     end
 
     private
 
     def order_params
         params.require(:order).permit(:stock_id, :qty)
+    end
+
+    def _init
+        @wallets = Wallet.all
+        @stocks = Stock.all
+        @wallet = Wallet.new
     end
 end

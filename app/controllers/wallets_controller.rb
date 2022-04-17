@@ -12,7 +12,7 @@ class WalletsController < ApplicationController
         @wallet.set_action_type(action_type)
 
         if @wallet.valid?
-            params_obj = params[:wallet].as_json({ except: [:remark] })
+            params_obj = params[:wallet].as_json({ except: [:remarks] })
             stock = Stock.find(params_obj['stock_id'])
             wallet = Wallet.find_by(:stock_id => params_obj['stock_id'], :user_id => current_user.id)
 
@@ -34,19 +34,32 @@ class WalletsController < ApplicationController
                     end
                     qty = param_qty
                 end
+
+                param_total_cost = qty.to_f * stock.unit_price
                 
                 params_obj = {
                     **params_obj,
                     user_id: current_user.id,
                     qty: qty,
-                    total_cost: qty.to_f * stock.unit_price,
+                    total_cost: param_total_cost,
                     created_at: Time.now,
                     updated_at: Time.now
                 }
 
-                Wallet.upsert(params_obj, unique_by: [:user_id, :stock_id])
+                result = Wallet.upsert(params_obj, unique_by: [:user_id, :stock_id])
+
+                if result
+                    order = Order.new
+                    order.user_id = current_user.id
+                    order.stock_id = stock.id
+                    order.qty = param_qty
+                    order.total_cost = param_qty.to_f * stock.unit_price
+                    order.action_type = action_type
+                    order.remarks = params[:wallet][:remarks]
+                    order.save
+                end
             rescue ArgumentError => e
-                p e
+                puts e
             end
             flash.delete(:error)
             redirect_to wallets_path

@@ -1,14 +1,14 @@
 
 <div>
-  <h1>My Portfolio</h1>
+  <div class="breadcrumb">
+    <h1>My Portfolio</h1>
+    <h1>
+      <%= link_to "Order History", orders_path, { class: 'no-decor' } %>
+    </h1>
+  </div>
   <div class="order">
     <div style="width: 100%">
-      <div class="order-header">
-        Available Cash: &nbsp
-        <label class="font-bold">
-          <%= current_user.available_cash %>
-        </label>
-      </div>
+      <%= render 'header' %>
       <table>
         <thead>
               <th>Stocks</th>
