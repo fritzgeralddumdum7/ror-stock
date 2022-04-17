@@ -3,7 +3,7 @@ class UsersController < Devise::RegistrationsController
         @user = User.new(user_params)
 
         if @user.save
-            WelcomeMailer.send_welcome_email(@user).deliver
+            WelcomeMailer.welcome_email(@user).deliver
             redirect_to dashboard_path
         else
             render 'devise/registrations/new'

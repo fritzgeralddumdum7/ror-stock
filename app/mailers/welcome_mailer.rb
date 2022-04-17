@@ -1,8 +1,12 @@
 class WelcomeMailer < ApplicationMailer
 
-    def send_welcome_email(user)
-        @user = user
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.welcome_mailer.welcome_mailer.subject
+  #
+  def welcome_mailer
+    @user = user
         mail to: @user.email, subject: "Welcome to Stock App", from: "adminr@gmail.com"
-    end
-
+  end
 end
