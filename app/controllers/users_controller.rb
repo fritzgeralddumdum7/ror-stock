@@ -28,6 +28,12 @@ class UsersController < Devise::RegistrationsController
         @wallets = Wallet.all
         @wallet = Wallet.new
     end
+    def new
+        @user = User.new
+    end
+    def new
+        @user = User.new
+    end
 
     private
 
