@@ -80,3 +80,9 @@ input {
 .no-decor:hover {
   text-decoration: underline;
 }
+
+.items-center {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
