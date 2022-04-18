@@ -16,6 +16,7 @@ class User < ApplicationRecord
     end
 
     def welcome_mailer
+        p "email has been sent!"
         WelcomeMailer.welcome_mailer(self).deliver
     end
 end
