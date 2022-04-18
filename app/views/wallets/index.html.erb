@@ -28,6 +28,31 @@
         </tbody>
       </table>
     </div>
-    <%= render 'buy_sell_form' %>
+    <div class="card">
+      <div class="card-title">
+        Buy and Sell
+      </div>
+      <div class="card-body">
+        <%= form_with  model: @wallet do |form| %>
+          <%= form.hidden_field :user_id, :value => current_user.id %>
+          <div>
+            <%= form.label :stock_id %>
+            <%= form.collection_select :stock_id, @stocks, :id, :name %>
+          </div>
+          <div class="wrapper">
+            <%= form.label :qty %>
+            <%= form.number_field :qty %>
+          </div>
+          <div class="wrapper">
+            <%= form.label :remarks, "Remarks (optional)" %>
+            <%= form.text_area :remarks, :rows => 5 %>
+          </div>
+          <div class="action-wrapper">
+            <%= form.submit 'BUY', :class => 'buy-btn', :value => 'BUY' %>
+            <%= form.submit 'SELL', :class => 'sell-btn', :value => 'SELL' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

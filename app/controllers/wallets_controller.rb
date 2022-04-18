@@ -9,11 +9,13 @@ class WalletsController < ApplicationController
 
     def create
         @wallet = Wallet.new(wallet_params)
+
+        stock = Stock.find(params[:wallet][:stock_id])
         @wallet.set_action_type(action_type)
+        @wallet.set_total_cost(params[:wallet][:qty].to_f * stock.unit_price)
 
         if @wallet.valid?
             params_obj = params[:wallet].as_json({ except: [:remarks] })
-            stock = Stock.find(params_obj['stock_id'])
             wallet = Wallet.find_by(:stock_id => params_obj['stock_id'], :user_id => current_user.id)
 
             begin
@@ -39,7 +41,6 @@ class WalletsController < ApplicationController
                 
                 params_obj = {
                     **params_obj,
-                    user_id: current_user.id,
                     qty: qty,
                     total_cost: param_total_cost,
                     created_at: Time.now,
@@ -57,6 +58,12 @@ class WalletsController < ApplicationController
                     order.action_type = action_type
                     order.remarks = params[:wallet][:remarks]
                     order.save
+
+                    if action_type == 'BUY'
+                        current_user.update(available_cash: current_user.available_cash - params[:wallet][:qty].to_f * stock.unit_price)
+                    else
+                        current_user.update(available_cash: current_user.available_cash + params[:wallet][:qty].to_f * stock.unit_price)
+                    end
                 end
             rescue ArgumentError => e
                 puts e
@@ -80,11 +87,11 @@ class WalletsController < ApplicationController
     end
 
     def _init
-        @wallets = Wallet.all
+        @wallets = Wallet.where(user_id: current_user.id)
         @stocks = Stock.all
     end
 
     def wallet_params
-        params.require(:wallet).permit(:stock_id, :qty)
+        params.require(:wallet).permit(:user_id, :stock_id, :qty)
     end
 end
