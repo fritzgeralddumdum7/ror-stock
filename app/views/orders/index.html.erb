@@ -1,9 +1,10 @@
 <div>
   <div class="breadcrumb">
     <h1>Order History</h1>
-    <h1>
-      <%= link_to "Wallets", wallets_path, { class: 'no-decor' } %>
-    </h1>
+    <div class="items-center">
+      <%= link_to "Wallet / Buy & Sell", wallets_path, { class: 'no-decor' } %>
+      <%= link_to "Stock List", stocks_path, { class: 'no-decor' } %>
+    </div>
   </div>
   <div class="order">
     <div style="width: 100%">

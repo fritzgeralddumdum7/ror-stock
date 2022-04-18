@@ -1,0 +1,27 @@
+<div>
+  <div class="breadcrumb">
+    <h1>Stock List</h1>
+    <div class="items-center">
+      <%= link_to "Wallet / Buy & Sell", wallets_path, { class: 'no-decor' } %>
+      <%= link_to "Order History", orders_path, { class: 'no-decor' } %>
+    </div>
+  </div>
+    <div style="width: 100%">
+        <table>
+            <thead>
+                    <th>Stock</th>
+                    <th>Unit Price</th>
+                    <th>QTY</th>
+            </thead>
+            <tbody>
+                <% @stocks.each do |stock| %>
+                    <tr>
+                        <td><%= stock.name %></td>
+                        <td><%= stock.unit_price %></td>
+                        <td><%= stock.qty %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

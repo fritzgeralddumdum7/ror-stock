@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         root :to => 'users#index', :as => :dashboard
         resources :orders
         resources :wallets
+        get 'stocks' => 'stocks#index'
     end
     get 'vTrade', to: 'users#v_trade'
 end
