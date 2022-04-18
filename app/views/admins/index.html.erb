@@ -1,0 +1,34 @@
+<h1> User List </h1>
+
+<table>
+    <thead>
+        <th>First Name</th>
+        <th>Email </th>
+        <th>Action/Status</th>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+            <tr>
+                <td><%= user.first_name %></td>
+                <td><%= user.email %></td>
+                <td>
+                    <% if user.is_verified %>
+                        Verified
+                    <% else %>
+                        <%= link_to "Verify" %>
+                    <% end %>
+                </td>
+                <%
+=begin%>
+ <td>
+                    <% if !user.is_verified %>
+                        <%= link_to "Confirm", user.update(is_verfied: 'true') %>
+                        <%= AcceptedMailer.send_acceptance_email(user).deliver %>
+                    <% end %>
+                </td> 
+<%
+=end%>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -9,15 +9,13 @@ class User < ApplicationRecord
     has_many :wallets
     has_many :orders
 
+    after_create :welcome_mailer
+
     def name
         [first_name, last_name].join(' ')
     end
 
-    after_create :welcome_mailer
     def welcome_mailer
         WelcomeMailer.welcome_mailer(self).deliver
     end
-
-
-
 end
