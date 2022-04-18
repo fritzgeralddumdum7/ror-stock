@@ -14,6 +14,7 @@
             <td>
                 <% if !user.is_verified %>
                     <%= link_to "Confirm", user.update(is_verfied: 'true') %>
+                    <%= AcceptedMailer.send_acceptance_email(user).deliver
                 <% end %>
             </td>
         </tr>
