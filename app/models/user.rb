@@ -10,6 +10,7 @@ class User < ApplicationRecord
     has_many :orders
 
     after_create :welcome_mailer
+    after_create :validate_verification
 
     def name
         [first_name, last_name].join(' ')

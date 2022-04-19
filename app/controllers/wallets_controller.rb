@@ -2,7 +2,6 @@ class WalletsController < ApplicationController
     before_action :action_type, only: [:create]
     before_action :_init, only: [:index, :create]
 
-
     def index
         @wallet = Wallet.new
     end

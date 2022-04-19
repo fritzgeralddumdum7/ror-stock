@@ -51,7 +51,7 @@ input {
   margin-top: 10px;
 }
 
-.alert-danger {    
+.alert {    
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
@@ -65,6 +65,15 @@ input {
   margin-right: auto;
   left: 0;
   right: 0;
+}
+
+.error {
+  background-color: #f8d7da;
+}
+
+.notice {
+  background-color: #09bca8;
+  color: #fff !important;
 }
 
 .breadcrumb {
