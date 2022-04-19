@@ -48,8 +48,4 @@ class Wallet < ApplicationRecord
   def set_total_cost(total_cost)
     @@total_cost = total_cost
   end
-  
-  def total_cost
-    "$%.2f" % self[:total_cost]
-  end
 end

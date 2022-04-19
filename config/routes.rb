@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
-    devise_for :users, :controllers => { :registrations => 'users' }
+    devise_for :users, :controllers => {
+        :registrations => 'users'
+    }
     devise_scope :user do
-        # resources :admin do
-        #     resources :traders
-        # end
-
         get 'admin/user-list' => 'admins#index'
-
         get 'logout' => 'devise/sessions#destroy'
-        get 'vTrade' => 'users#v_trade'
-
-        root :to => 'users#index', :as => :dashboard
-        resources :orders
-        resources :wallets
+        get 'login' => 'devise/sessions#new'
+        get 'orders' => 'orders#index'
         get 'stocks' => 'stocks#index'
+        get 'wallets'=> 'wallets#index'
+        post 'wallets'=> 'wallets#create'
+
+        root :to => 'wallets#index', :as => :dashboard
     end
-    get 'vTrade', to: 'users#v_trade'
 end

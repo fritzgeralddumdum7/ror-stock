@@ -13,7 +13,7 @@
     <main class="mx-auto">
       <% if flash.any? %>
         <% flash.each do |type, msg| %>
-          <div class="alert-danger">
+          <div class="alert <%= p type %>">
             <%= msg %>
           </div>
         <% end %>
