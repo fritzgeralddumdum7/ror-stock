@@ -3,7 +3,7 @@ Rails.application.routes.draw do
         :registrations => 'users'
     }
     devise_scope :user do
-        get 'admin/user-list' => 'admins#index'
+        get 'admin/users' => 'admins#index'
         get 'logout' => 'devise/sessions#destroy'
         get 'login' => 'devise/sessions#new'
         get 'orders' => 'orders#index'
@@ -12,6 +12,11 @@ Rails.application.routes.draw do
         post 'wallets'=> 'wallets#create'
 
         get 'transactions'=> 'admins#transactions'
+
+        resources :admins
+        get 'admin/new' => 'admins#new'
+        patch 'admins/:id' => 'admins#update', :to => :admins
+        resources :traders
 
         root :to => 'wallets#index', :as => :dashboard
     end

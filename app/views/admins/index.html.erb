@@ -4,13 +4,14 @@
     <thead>
         <th>First Name</th>
         <th>Email </th>
-        <th>Action/Status</th>
+        <th colspan="3">Action/Status</th>
     </thead>
     <tbody>
         <% @users.each do |user| %>
             <tr>
                 <td><%= user.first_name %></td>
                 <td><%= user.email %></td>
+                <td><%= link_to "Edit", edit_admin_path(:id => user.id) %></td>
                 <td>
                     <% if user.is_verified %>
                         Verified
@@ -18,16 +19,6 @@
                         <%= link_to "Verify" %>
                     <% end %>
                 </td>
-                <%
-=begin%>
- <td>
-                    <% if !user.is_verified %>
-                        <%= link_to "Confirm", user.update(is_verfied: 'true') %>
-                        <%= AcceptedMailer.send_acceptance_email(user).deliver %>
-                    <% end %>
-                </td> 
-<%
-=end%>
             </tr>
         <% end %>
     </tbody>

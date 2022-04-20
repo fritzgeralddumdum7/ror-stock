@@ -18,4 +18,10 @@ class User < ApplicationRecord
     def welcome_mailer
         WelcomeMailer.welcome_mailer(self).deliver
     end
+
+    protected 
+    
+    def password_required? 
+        false 
+    end 
 end
