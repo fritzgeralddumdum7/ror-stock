@@ -1,0 +1,40 @@
+<div>
+  <div class="breadcrumb">
+    <h1>Transaction Logs</h1>
+    <div class="items-center">
+      <%= link_to "Wallet / Buy & Sell", wallets_path, { class: 'no-decor' } %>
+      <%= link_to "Stock List", stocks_path, { class: 'no-decor' } %>
+    </div>
+  </div>
+  <div class="order">
+    <div style="width: 100%">
+      <%= render 'wallets/header' %>
+      <table>
+        <thead>
+              <th>Name</th>
+              <th>Stocks</th>
+              <th>Price</th>
+              <th>Shares QTY</th>
+              <th>Type</th>
+              <th>Total Cost</th>
+              <th>Remarks</th>
+              <th>Created at</th>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+              <td><%= order.user.name %></td>
+              <td><%= order.stock.name %></td>
+              <td><%= order.stock.unit_price %></td>
+              <td><%= order.qty %></td>
+              <td class="<%= order.action_type == 'BUY' ? 'stock-buy' : 'stock-sell' %>"><%= order.action_type %></td>
+              <td><%= order.total_cost %></td>
+              <td><%= order.remarks %></td>
+              <td><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -5,10 +5,10 @@
 
 - [x] As a Trader, I want to create an account to buy and sell stocks
 - [x] As a Trader, I want to log in my credentials so that I can access my account on the app
-- [ ] As a Trader, I want to buy a stock to add to my investment(Trader signup should be approved)
-- [ ] As a Trader, I want to have a My Portfolio page to see all my stocks
-- [ ] As a Trader, I want to have a Transaction page to see and monitor all the transactions made by buying and selling stocks
-- [ ] As a Trader, I want to sell my stocks to gain money.
+- [x] As a Trader, I want to buy a stock to add to my investment(Trader signup should be approved)
+- [x] As a Trader, I want to have a My Portfolio page to see all my stocks
+- [x] As a Trader, I want to have a Transaction page to see and monitor all the transactions made by buying and selling stocks
+- [x] As a Trader, I want to sell my stocks to gain money.
 
 ### Admin
 
@@ -16,7 +16,7 @@
 - [ ] As an Admin, I want to edit a specific trader to update his/her details
 - [ ] As an Admin, I want to view a specific trader to show his/her details
 - [x] As an Admin, I want to see all the trader that registered in the app so I can track all the traders
-- [ ] As an Admin, I want to see all the transactions so that I can monitor the transaction flow of the app
+- [x] As an Admin, I want to see all the transactions so that I can monitor the transaction flow of the app
 
 ### Challenge:
 
