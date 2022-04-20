@@ -11,6 +11,8 @@ Rails.application.routes.draw do
         get 'wallets'=> 'wallets#index'
         post 'wallets'=> 'wallets#create'
 
+        get 'transactions'=> 'admins#transactions'
+
         root :to => 'wallets#index', :as => :dashboard
     end
 end
