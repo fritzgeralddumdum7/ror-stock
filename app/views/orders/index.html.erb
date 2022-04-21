@@ -4,6 +4,7 @@
     <div class="items-center">
       <%= link_to "Wallet / Buy & Sell", wallets_path, { class: 'no-decor' } %>
       <%= link_to "Stock List", stocks_path, { class: 'no-decor' } %>
+      <%= link_to "Logout", destroy_user_session_path, method: 'delete', {class: 'no-decor'} %>
     </div>
   </div>
   <div class="order">
